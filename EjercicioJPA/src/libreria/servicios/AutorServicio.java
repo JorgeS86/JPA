@@ -21,11 +21,15 @@ public class AutorServicio {
 
     public Autor nuevoAutor() {
         Autor A = new Autor();
-        System.out.println("Ingrese el nombre del autor");
-        A.setNombre(leer.next());
-        A.setAlta(true);
-        ADAO.nuevoAutor(A);
-        System.out.println("AUTOR INGRESADO A LA BD");
+        try {
+            System.out.println("Ingrese el nombre del autor");
+            A.setNombre(leer.next());
+            A.setAlta(true);
+            ADAO.nuevoAutor(A);
+            System.out.println("AUTOR INGRESADO A LA BD");
+        } catch (Exception e) {
+            System.err.println("Error en datos ingresados");
+        }
         return A;
     }
 
@@ -77,11 +81,10 @@ public class AutorServicio {
             System.out.println("---------------------------------");
         }
     }
-    
-    public Autor buscarAutor(Long id) throws Exception{
+
+    public Autor buscarAutor(Long id) throws Exception {
         Autor A = ADAO.buscarAutor(id);
         return A;
     }
-    
-   
+
 }

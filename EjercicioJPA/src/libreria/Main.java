@@ -147,6 +147,7 @@ public class Main {
                                     System.out.println("1-MOSTRAR TODOS LOS LIBROS");
                                     System.out.println("2-MOSTRAR LIBROS POR NOMBRE");
                                     System.out.println("3-MOSTRAR LIBROS POR ID");
+                                    System.out.println("4-MOSTRAR LIBROS POR NOMBRE DE AUTOR");
                                     System.out.println("0-SALIR");
 
                                     System.out.println("Ingrese la opcion deseada");
@@ -156,6 +157,7 @@ public class Main {
                                         case 1:
                                         case 2:
                                         case 3:
+                                        case 4:
                                             LS.mostrarTodosLibros(opcion);
                                             break;
                                         case 0:

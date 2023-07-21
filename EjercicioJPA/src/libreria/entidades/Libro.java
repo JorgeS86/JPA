@@ -24,6 +24,7 @@ public class Libro implements Serializable {
     private Long id;
     private String titulo;
     private Integer anio;
+    private Integer ejemplares;
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
     private Boolean alta;
@@ -35,14 +36,23 @@ public class Libro implements Serializable {
     public Libro() {
     }
 
-    public Libro(String titulo, Integer anio, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Editorial editorial, Autor autor) {
+    public Libro(String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Editorial editorial, Autor autor) {
         this.titulo = titulo;
         this.anio = anio;
+        this.ejemplares = ejemplares;
         this.ejemplaresPrestados = ejemplaresPrestados;
         this.ejemplaresRestantes = ejemplaresRestantes;
         this.alta = alta;
         this.editorial = editorial;
         this.autor = autor;
+    }
+
+    public Integer getEjemplares() {
+        return ejemplares;
+    }
+
+    public void setEjemplares(Integer ejemplares) {
+        this.ejemplares = ejemplares;
     }
 
     public String getTitulo() {
@@ -131,9 +141,8 @@ public class Libro implements Serializable {
         return true;
     }
 
-   @Override
+    @Override
     public String toString() {
-        return "Libro{" + "id=" + id + ", titulo=" + titulo + ", anio=" + anio + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
+        return "Libro{" + "id=" + id + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", editorial=" + editorial + ", autor=" + autor + '}';
     }
-    
 }

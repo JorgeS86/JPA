@@ -30,8 +30,9 @@ public class LibroServicio {
         System.out.println("Ingrese el año de Edicion");
         L.setAnio(leer.nextInt());
         System.out.println("Ingrese la cantidad de Ejemplares");
-        L.setEjemplaresRestantes(leer.nextInt());
-        L.setEjemplaresPrestados(L.getEjemplaresRestantes());
+        L.setEjemplares(leer.nextInt());
+        L.setEjemplaresRestantes(L.getEjemplares());
+        L.setEjemplaresPrestados(L.getEjemplares());
         L.setAlta(true);
 
         System.out.println("El libro pertenece a un Autor Nuevo?(S/N)");
@@ -115,6 +116,11 @@ public class LibroServicio {
                 String id = leer.next();
                 libros = LDAO.mostrarLibrosPorID(id);
                 break;
+                 case 4:
+                System.out.println("Ingrese el nombre de autor para buscar el libro/s");
+                String nombreAutor = leer.next();
+                libros = LDAO.mostrarLibrosPorNombreAutor(nombreAutor);
+                break;
         }
         if (libros.isEmpty()) {
             System.err.println("NO HAY DATOS QUE COINCIDAN CON LA BUSQUEDA ACTUAL");
@@ -133,4 +139,28 @@ public class LibroServicio {
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
+//MOSTRAR POR MEDIO DE BUSQUEDA EN UN ARRAYLIST
+//    public void mostrarLibrosxAutor() throws Exception {
+//        System.out.println("Ingrese el nombre de autor para buscar el libro/s");
+//        String nombreAutor = leer.next();
+//        List<Libro> libros = LDAO.mostrarTodosLibros();
+//        if (libros.isEmpty()) {
+//            System.err.println("NO HAY DATOS QUE COINCIDAN CON LA BUSQUEDA ACTUAL");
+//        } else {
+//            System.out.printf("%-5s %-5s %-5s %-30s %-50s %-20s\n", "ID", "ALTA", "AÑO", "TITULO LIBRO", "AUTOR", "EDITORIAL");
+//            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
+//            for (Libro libro : libros) {
+//                if (libro.getAutor().getNombre().equalsIgnoreCase(nombreAutor)) {
+//                    System.out.printf("%-5s %-5s %-5s %-30s %-50s %-20s\n",
+//                        libro.getId(),
+//                        libro.getAlta(),
+//                        libro.getAnio(),
+//                        libro.getTitulo(),
+//                        libro.getAutor().getNombre(),
+//                        libro.getEditorial().getNombre()); 
+//                }
+//            }
+//            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
+//        }
+//    }
 }

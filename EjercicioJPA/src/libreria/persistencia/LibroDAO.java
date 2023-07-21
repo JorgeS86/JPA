@@ -70,4 +70,11 @@ public class LibroDAO extends DAO {
         List L = mostrarLista(jpql);
         return L;
     }
+    
+    public List mostrarLibrosPorNombreAutor(String nombreAutor) throws Exception {
+        System.out.println("Buscando Libros que incluyan " + nombreAutor);
+        String jpql = "SELECT l FROM Libro l JOIN l.autor a WHERE a.nombre LIKE '%" + nombreAutor + "%'";
+        List L = mostrarLista(jpql);
+        return L;
+    }
 }
