@@ -6,8 +6,10 @@ package libreria;
 
 import java.util.Scanner;
 import libreria.servicios.AutorServicio;
+import libreria.servicios.ClienteServicio;
 import libreria.servicios.EditorialServicio;
 import libreria.servicios.LibroServicio;
+import libreria.servicios.PrestamoServicio;
 
 /**
  *
@@ -20,6 +22,8 @@ public class Main {
         AutorServicio AS = new AutorServicio();
         EditorialServicio ES = new EditorialServicio();
         LibroServicio LS = new LibroServicio();
+        ClienteServicio CS = new ClienteServicio();
+        PrestamoServicio PS = new PrestamoServicio();
 
         boolean salir = true;
         do {
@@ -28,6 +32,7 @@ public class Main {
             System.out.println("2-EDITAR");
             System.out.println("3-ALTA/BAJA");
             System.out.println("4-MOSTRAR");
+            System.out.println("5-PRESTAMO");
             System.out.println("0-SALIR");
 
             System.out.println("Ingrese la opcion deseada");
@@ -41,6 +46,7 @@ public class Main {
                         System.out.println("1-NUEVO LIBRO");
                         System.out.println("2-NUEVA EDITORIAL");
                         System.out.println("3-NUEVO AUTOR");
+                        System.out.println("4-NUEVO CLIENTE");
                         System.out.println("0-SALIR");
 
                         System.out.println("Ingrese la opcion deseada");
@@ -55,6 +61,9 @@ public class Main {
                                 break;
                             case 3:
                                 AS.nuevoAutor();
+                                break;
+                            case 4:
+                                CS.nuevoCliente();
                                 break;
                             case 0:
                                 System.out.println("SALIENDO AL MENU ANTERIOR");
@@ -72,6 +81,7 @@ public class Main {
                         System.out.println("1-EDITAR LIBRO");
                         System.out.println("2-EDITAR EDITORIAL");
                         System.out.println("3-EDITAR AUTOR");
+                        System.out.println("3-EDITAR CLIENTE");
                         System.out.println("0-SALIR");
 
                         System.out.println("Ingrese la opcion deseada");
@@ -86,6 +96,9 @@ public class Main {
                                 break;
                             case 3:
                                 AS.editarAutor();
+                                break;
+                            case 4:
+                                CS.editarCliente();
                                 break;
                             case 0:
                                 System.out.println("SALIENDO AL MENU ANTERIOR");
@@ -134,6 +147,7 @@ public class Main {
                         System.out.println("1-MOSTRAR LIBROS");
                         System.out.println("2-MOSTRAR EDITORIALES");
                         System.out.println("3-MOSTRAR AUTORES");
+                        System.out.println("4-MOSTRAR CLIENTES");
                         System.out.println("0-SALIR");
 
                         System.out.println("Ingrese la opcion deseada");
@@ -223,6 +237,34 @@ public class Main {
                                     }
                                 } while (salirMostrarAutores);
                                 break;
+                            case 4:
+                                boolean salirMostrarClientes = true;
+                                do {
+                                    System.out.println("SUB-MENU 'MOSTRAR CLIENTES'");
+                                    System.out.println("1-MOSTRAR TODOS LOS CLIENTES");
+                                    System.out.println("2-MOSTRAR CLIENTES POR NOMBRE");
+                                    System.out.println("3-MOSTRAR CLIENTES POR ID");
+                                    System.out.println("0-SALIR");
+
+                                    System.out.println("Ingrese la opcion deseada");
+                                    opcion = leer.nextInt();
+
+                                    switch (opcion) {
+                                        case 1:
+                                        case 2:
+                                        case 3:
+                                            CS.mostrarTodosClientes(opcion);
+                                            break;
+
+                                        case 0:
+                                            System.out.println("SALIENDO AL MENU ANTERIOR");
+                                            salirMostrarClientes = false;
+                                            break;
+                                        default:
+                                            System.err.println("SELECCION INVALIDA");
+                                    }
+                                } while (salirMostrarClientes);
+                                break;
                             case 0:
                                 System.out.println("SALIENDO AL MENU ANTERIOR");
                                 salirMostrar = false;
@@ -232,6 +274,11 @@ public class Main {
                         }
                     } while (salirMostrar);
                     break;
+                case 5:
+                    PS.mostrarTodosPrestamos(2);
+                    //PS.nuevoPrestamo();
+
+                    break;
                 case 0:
                     System.out.println("SALIENDO DEL SISTEMA");
                     salir = false;
@@ -240,6 +287,5 @@ public class Main {
                     System.err.println("SELECCION INVALIDA");
             }
         } while (salir);
-
     }
 }

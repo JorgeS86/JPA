@@ -75,7 +75,7 @@ public class LibroServicio {
         L.setAnio(leer.nextInt());
         System.out.println("Ingrese la cantidad de Ejemplares");
         L.setEjemplaresRestantes(leer.nextInt());
-        L.setEjemplaresPrestados(L.getEjemplaresRestantes());
+        L.setEjemplaresPrestados(0);
         L.setAlta(true);
 
         System.out.println("El libro pertenece a un Autor Nuevo?(S/N)");
@@ -139,6 +139,12 @@ public class LibroServicio {
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
+    
+    public Libro buscarLibro(Long id) throws Exception {
+        Libro L = LDAO.buscarLibro(id);
+        return L;
+    }
+    
 //MOSTRAR POR MEDIO DE BUSQUEDA EN UN ARRAYLIST
 //    public void mostrarLibrosxAutor() throws Exception {
 //        System.out.println("Ingrese el nombre de autor para buscar el libro/s");

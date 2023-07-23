@@ -77,4 +77,12 @@ public class LibroDAO extends DAO {
         List L = mostrarLista(jpql);
         return L;
     }
+    
+     public Libro buscarLibro(Long id) throws Exception {
+        System.out.println("Buscando Libro");
+        conectar();
+        Libro L = em.find(Libro.class, id);
+        desconectar();
+        return L;
+    }
 }
