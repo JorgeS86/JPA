@@ -32,7 +32,7 @@ public class Main {
             System.out.println("2-EDITAR");
             System.out.println("3-ALTA/BAJA");
             System.out.println("4-MOSTRAR");
-            System.out.println("5-PRESTAMO");
+            System.out.println("5-PRESTAMO/DEVOLUCION");
             System.out.println("0-SALIR");
 
             System.out.println("Ingrese la opcion deseada");
@@ -275,9 +275,35 @@ public class Main {
                     } while (salirMostrar);
                     break;
                 case 5:
-                    PS.mostrarTodosPrestamos(2);
-                    //PS.nuevoPrestamo();
+                    boolean salirPrestamo = true;
+                    do {
+                        System.out.println("SUB-MENU 'PRESTAMO / DEVOLUCION'");
+                        System.out.println("1-PRESTAMO");
+                        System.out.println("2-DEVOLUCION");
+                        System.out.println("3-MOSTRAR PRESTAMOS");
+                        System.out.println("0-SALIR");
 
+                        System.out.println("Ingrese la opcion deseada");
+                        opcion = leer.nextInt();
+
+                        switch (opcion) {
+                            case 1:
+                                PS.nuevoPrestamo();
+                                break;
+                            case 2:
+                                PS.devolucion();
+                                break;
+                            case 3:
+                                PS.mostrarTodosPrestamos(2);
+                                break;
+                            case 0:
+                                System.out.println("SALIENDO AL MENU ANTERIOR");
+                                salirPrestamo = false;
+                                break;
+                            default:
+                                System.err.println("SELECCION INVALIDA");
+                        }
+                    } while (salirPrestamo);
                     break;
                 case 0:
                     System.out.println("SALIENDO DEL SISTEMA");

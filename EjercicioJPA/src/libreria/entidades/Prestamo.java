@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,7 +24,9 @@ public class Prestamo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaPrestamo;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaDevolucion;
     @OneToOne
     private Libro libro;

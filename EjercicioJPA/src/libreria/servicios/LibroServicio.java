@@ -31,8 +31,8 @@ public class LibroServicio {
         L.setAnio(leer.nextInt());
         System.out.println("Ingrese la cantidad de Ejemplares");
         L.setEjemplares(leer.nextInt());
-        L.setEjemplaresRestantes(L.getEjemplares());
-        L.setEjemplaresPrestados(L.getEjemplares());
+        L.setEjemplaresPrestados(0);
+        L.setEjemplaresRestantes(L.getEjemplares()-L.getEjemplaresPrestados());
         L.setAlta(true);
 
         System.out.println("El libro pertenece a un Autor Nuevo?(S/N)");
@@ -74,8 +74,9 @@ public class LibroServicio {
         System.out.println("Ingrese el año de Edicion");
         L.setAnio(leer.nextInt());
         System.out.println("Ingrese la cantidad de Ejemplares");
-        L.setEjemplaresRestantes(leer.nextInt());
+       L.setEjemplares(leer.nextInt());
         L.setEjemplaresPrestados(0);
+        L.setEjemplaresRestantes(L.getEjemplares()-L.getEjemplaresPrestados());
         L.setAlta(true);
 
         System.out.println("El libro pertenece a un Autor Nuevo?(S/N)");
