@@ -109,17 +109,19 @@ public class PrestamoServicio {
         if (prestamos.isEmpty()) {
             System.err.println("NO HAY DATOS QUE COINCIDAN CON LA BUSQUEDA ACTUAL");
         } else {
-            System.out.printf("%-5s %-20s %-20s %-30s %-30s\n", "ID", "FECHA PRESTAMO", "FECHA DEV", "TITULO LIBRO", "NOMBRE CLIENTE");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%-5s %-40s %-40s %-30s %-10s %-10s %-20s\n", "ID", "FECHA PRESTAMO", "FECHA DEV", "TITULO LIBRO","PRESTADOS" ,"RESTANTES","NOMBRE CLIENTE");
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (Prestamo prestamo : prestamos) {
-                System.out.printf("%-5s %-20s %-20s %-30s %-30s\n",
+                System.out.printf("%-5s %-40s %-40s %-30s %-10s %-10s %-20s\n",
                         prestamo.getId(),
                         prestamo.getFechaPrestamo(),
                         prestamo.getFechaDevolucion(),
                         prestamo.getLibro().getTitulo(),
+                        prestamo.getLibro().getEjemplaresPrestados(),
+                        prestamo.getLibro().getEjemplaresRestantes(),
                         prestamo.getCliente().getNombre());
             }
-            System.out.println("---------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
 

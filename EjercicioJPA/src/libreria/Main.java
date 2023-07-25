@@ -294,7 +294,7 @@ public class Main {
                                 PS.devolucion();
                                 break;
                             case 3:
-                                PS.mostrarTodosPrestamos(2);
+                                PS.mostrarTodosPrestamos(1);
                                 break;
                             case 0:
                                 System.out.println("SALIENDO AL MENU ANTERIOR");
